@@ -1,32 +1,25 @@
 package com.amazon.mws;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Properties;
 
-/**
- * @author wingert
- */
 public class Credentials {
-
-    public static final Credentials NA_Seth = new Credentials("awsAccessKey",
-            "awsSecretKey", "https://mws.amazonservices.com");
 
     private String accessKey;
     private String secretKey;
     private String endpoint;
 
-    public Credentials(String accessKey, String secretKey, String endpoint) throws IOException {
+    public Credentials() throws IOException {
         super();
         Properties properties = new Properties();
-        //properties.load(Files.);
-        List<String> configEntries = Files.readAllLines(Paths.get("shoptasticles.config"));
-        this.accessKey = accessKey;
-        this.secretKey = secretKey;
-        this.endpoint = endpoint;
+        properties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + File.separator + "shoptasticles.config")));
+        this.accessKey = properties.getProperty("amazon.mws.access.key");
+        this.secretKey = properties.getProperty("amazon.mws.secret.key");
+        this.endpoint = "https://mws.amazonservices.com";
     }
 
     public String getAccessKey() {
@@ -39,5 +32,14 @@ public class Credentials {
 
     public String getEndpoint() {
         return endpoint;
+    }
+
+    @Override
+    public String toString() {
+        return "Credentials{" +
+                "accessKey='" + accessKey + '\'' +
+                ", secretKey='" + secretKey + '\'' +
+                ", endpoint='" + endpoint + '\'' +
+                '}';
     }
 }
