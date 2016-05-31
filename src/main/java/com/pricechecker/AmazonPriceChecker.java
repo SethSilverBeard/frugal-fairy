@@ -8,5 +8,4 @@ public class AmazonPriceChecker implements PriceChecker {
 	public List<Price> getLowestPrices() {
 		return null;
 	}
-
 }
