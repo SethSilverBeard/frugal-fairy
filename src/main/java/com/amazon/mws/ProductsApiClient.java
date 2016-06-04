@@ -6,9 +6,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.SignatureException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
 import java.util.logging.Logger;
 
+import com.pricechecker.HttpRequestUtils;
 import com.pricechecker.Price;
 
 public class ProductsApiClient {
@@ -19,8 +26,30 @@ public class ProductsApiClient {
     private SignatureCalculator signatureCalculator;
 	
 	private ProductsApiClient(Credentials credentials) {
-		this.credentials = credentials;
-		this.signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials);
+		this.credentials = Objects.requireNonNull(credentials);
+		this.signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products");
+
+	}
+	
+	/**
+	 * 
+	 * @param asin
+	 * @return
+	 * @throws SignatureException 
+	 */
+	public String createGetLowestOffersUrlParameters(String asin) throws SignatureException {
+		Map<String, String> urlParameters = new TreeMap<String,String>();
+		urlParameters.put("Action", "GetLowestPricedOffersForASIN");
+		urlParameters.put("AWSAccessKey", credentials.getAccessKey());
+		urlParameters.put("MarketplaceId", credentials.getMarketplaceId()); //US Marketplace
+		urlParameters.put("SellerId", credentials.getSellerId());
+		urlParameters.put("ItemCondition", "New");
+		urlParameters.put("SignatureMethod",  "HmacSHA256");
+		urlParameters.put("SignatureVersion", "2");
+		urlParameters.put("Version", "2011-10-01");
+		urlParameters.put("Timestamp", getCurrentTimestamp());
+		signatureCalculator.sign(urlParameters);
+		return HttpRequestUtils.mapToQueryString(urlParameters);
 	}
 	
 	public static ProductsApiClient createProductsApiClient(Credentials credentials) {
@@ -38,8 +67,9 @@ public class ProductsApiClient {
 		    connection.setRequestProperty("Content-Type", 
 		        "application/x-www-form-urlencoded");
 
-		    connection.setRequestProperty("Content-Length", Integer.toString(urlParameters.getBytes().length));
-		    connection.setRequestProperty("Content-Language", "en-US");  
+		    String findOffersUrlParameters = createGetLowestOffersUrlParameters(asin);
+		    connection.setRequestProperty("Content-Length", Integer.toString(findOffersUrlParameters.getBytes().length));
+		    connection.setRequestProperty("Content-Language", "en-US");
 
 		    connection.setUseCaches(false);
 		    connection.setDoOutput(true);
@@ -47,7 +77,8 @@ public class ProductsApiClient {
 		    //Send request
 		    DataOutputStream wr = new DataOutputStream (
 		        connection.getOutputStream());
-		    wr.writeBytes(urlParameters);
+		    
+		    wr.writeBytes(findOffersUrlParameters);
 		    wr.close();
 
 		    //Get Response  
@@ -75,4 +106,12 @@ public class ProductsApiClient {
 	private void sendPost(String urlParams) throws Exception {
 		SignatureCalculator.createSignatureCalculator(creds);
 	}
+	
+    
+    /**
+     * @return a new ISO 8601 date
+     */
+    private String getCurrentTimestamp() {
+        return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(new Date());
+    }
 }

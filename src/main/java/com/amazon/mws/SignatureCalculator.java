@@ -1,22 +1,21 @@
 package com.amazon.mws;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
+import static sun.security.x509.CertificateAlgorithmId.ALGORITHM;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 
-import static sun.security.x509.CertificateAlgorithmId.ALGORITHM;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * Created by wingert on 5/24/2016.
@@ -33,8 +32,9 @@ public class SignatureCalculator {
     private Credentials credentials;
     private String apiSection = "Products";
 
-    private SignatureCalculator(Credentials credentials) {
-        this.credentials = credentials;
+    private SignatureCalculator(Credentials credentials, String apiSection) {
+        this.credentials = Objects.requireNonNull(credentials);
+        this.apiSection = Objects.requireNonNull(apiSection);
     }
 
     /* If Signature Version is 2, string to sign is based on following:
@@ -58,14 +58,10 @@ public class SignatureCalculator {
         *       by the '&' character (ASCII code 38).
         *
         */
-    private String constructStringToSignV2(Map<String, String> parameters) throws SignatureException,
-            URISyntaxException {
+    private String constructStringToSignV2(Map<String, String> parameters) throws SignatureException {
         // Sort the parameters natural order by storing in TreeMap structure
         Map<String, String> sorted = new TreeMap<String, String>();
         sorted.putAll(parameters);
-
-        // Set endpoint value
-        URI endpoint = new URI(credentials.getEndpoint().toLowerCase());
 
         // Create flattened (String) representation
         StringBuilder data = new StringBuilder();
@@ -86,27 +82,26 @@ public class SignatureCalculator {
         return data.toString();
     }
 
-    public static SignatureCalculator createSignatureCalculator(Credentials credentials) {
-        return new SignatureCalculator(credentials);
+    public static SignatureCalculator createSignatureCalculator(Credentials credentials, String apiSection) {
+        return new SignatureCalculator(credentials, apiSection);
     }
 
     /*
  * Sign the text with the given secret key and convert to base64
  */
-    private static String sign(String data, String secretKey)
-            throws NoSuchAlgorithmException, InvalidKeyException,
-            IllegalStateException, UnsupportedEncodingException {
-        Mac mac = Mac.getInstance(ALGORITHM);
-        mac.init(new SecretKeySpec(secretKey.getBytes(CHARACTER_ENCODING),
-                ALGORITHM));
-        byte[] signature = mac.doFinal(data.getBytes(CHARACTER_ENCODING));
-        System.out.println("Siggy:" + Hex.encodeHexString(signature));
-        String signatureBase64 = new String(Base64.encodeBase64(signature),
-                CHARACTER_ENCODING);
-        System.out.println("Base64Siggy: " + signatureBase64);
-        //String signatureUrlEncode = urlEncode(signatureBase64);
-        //System.out.println("Ency64Siggy: " + signatureUrlEncode);
-        return signatureBase64;
+    private String sign(String dataToSign) throws SignatureException {
+        try {
+			Mac mac = Mac.getInstance(ALGORITHM);
+			mac.init(new SecretKeySpec(credentials.getSecretKey().getBytes(CHARACTER_ENCODING),
+			        ALGORITHM));
+			byte[] signature = mac.doFinal(dataToSign.getBytes(CHARACTER_ENCODING));
+			String signatureBase64 = new String(Base64.encodeBase64(signature),
+			        CHARACTER_ENCODING);
+			return signatureBase64;
+		} catch (InvalidKeyException | NoSuchAlgorithmException | UnsupportedEncodingException
+				| IllegalStateException e) {
+			throw new SignatureException(e);
+		}
     }
 
     private static String urlEncode(String rawValue) {
@@ -125,4 +120,10 @@ public class SignatureCalculator {
 
         return encoded;
     }
+
+	public void sign(Map<String, String> urlParameters) throws SignatureException {
+		String signature = sign(constructStringToSignV2(urlParameters));
+		urlParameters.put("Signature", signature);
+	}
+
 }
