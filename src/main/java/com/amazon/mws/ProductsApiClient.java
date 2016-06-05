@@ -17,8 +17,9 @@ import java.util.logging.Logger;
 
 import com.pricechecker.HttpRequestUtils;
 import com.pricechecker.Price;
+import com.pricechecker.PriceChecker;
 
-public class ProductsApiClient {
+public class ProductsApiClient implements PriceChecker {
 	
 	private static Logger logger = Logger.getLogger(ProductsApiClient.class.getName());
 	
@@ -40,7 +41,7 @@ public class ProductsApiClient {
 	public String createGetLowestOffersUrlParameters(String asin) throws SignatureException {
 		Map<String, String> urlParameters = new TreeMap<String,String>();
 		urlParameters.put("Action", "GetLowestPricedOffersForASIN");
-		urlParameters.put("AWSAccessKey", credentials.getAccessKey());
+		urlParameters.put("AWSAccessKeyId", credentials.getAccessKey());
 		urlParameters.put("MarketplaceId", credentials.getMarketplaceId()); //US Marketplace
 		urlParameters.put("SellerId", credentials.getSellerId());
 		urlParameters.put("ItemCondition", "New");
@@ -56,11 +57,11 @@ public class ProductsApiClient {
 		return new ProductsApiClient(credentials);
 	}
 	
-	public List<Price> findOffers(String asin) {
+	public String findOffers(String asin) throws Exception {
 		HttpURLConnection connection = null;  
 		  try {
 		    //Create connection
-		    URL url = new URL(credentials.getEndpoint());
+		    URL url = new URL(credentials.getEndpoint() + "/Products/2011-10-01");
 		    connection = (HttpURLConnection)url.openConnection();
 		    connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.1; rv:2.2) Gecko/20110201");
 		    connection.setRequestMethod("POST");
@@ -77,12 +78,18 @@ public class ProductsApiClient {
 		    //Send request
 		    DataOutputStream wr = new DataOutputStream (
 		        connection.getOutputStream());
-		    
+		    logger.info(findOffersUrlParameters);
 		    wr.writeBytes(findOffersUrlParameters);
 		    wr.close();
-
+		    
 		    //Get Response  
-		    InputStream is = connection.getInputStream();
+		    InputStream is;
+		    if (connection.getResponseCode() == 200) {
+		    	is = connection.getInputStream();
+		    } else {
+		    	is = connection.getErrorStream();
+		    }
+		    
 		    BufferedReader rd = new BufferedReader(new InputStreamReader(is));
 		    StringBuilder response = new StringBuilder(); // or StringBuffer if not Java 5+ 
 		    String line;
@@ -91,22 +98,16 @@ public class ProductsApiClient {
 		      response.append('\r');
 		    }
 		    rd.close();
+		    if (connection.getResponseCode() != 200) {
+		    	throw new AmazonPriceCheckerException(response.toString());
+		    }
 		    return response.toString();
-		  } catch (Exception e) {
-			  logger.severe(e.getMessage());
-			  e.printStackTrace();
-			  return null;
 		  } finally {
 		    if(connection != null) {
 		      connection.disconnect(); 
 		    }
 		  }
 	}
-	
-	private void sendPost(String urlParams) throws Exception {
-		SignatureCalculator.createSignatureCalculator(creds);
-	}
-	
     
     /**
      * @return a new ISO 8601 date
@@ -114,4 +115,10 @@ public class ProductsApiClient {
     private String getCurrentTimestamp() {
         return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(new Date());
     }
+
+	@Override
+	public List<Price> getLowestPrices() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

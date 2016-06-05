@@ -1,9 +1,8 @@
 package com.amazon.mws;
 
-import static sun.security.x509.CertificateAlgorithmId.ALGORITHM;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
@@ -22,7 +21,8 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class SignatureCalculator {
 
-    private static final String CHARACTER_ENCODING = "UTF-8";
+    private static final String CHARACTER_ENCODING = StandardCharsets.UTF_8.name();
+    private static final String ALGORITHM = "HmacSHA256";
 
     //Need 4 things to make a signature
     //1) MWS Credentials

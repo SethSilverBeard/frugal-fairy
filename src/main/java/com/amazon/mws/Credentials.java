@@ -15,15 +15,20 @@ public class Credentials {
     private String sellerId;
     private String marketplaceId;
 
-    public Credentials() throws IOException {
+    private Credentials() throws IOException {
         super();
+    }
+    
+    public static Credentials createUsingConfigFile() throws IOException {
+    	Credentials creds = new Credentials();
         Properties properties = new Properties();
         properties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + File.separator + "shoptasticles.config")));
-        this.accessKey = properties.getProperty("amazon.mws.access.key");
-        this.secretKey = properties.getProperty("amazon.mws.secret.key");
-        this.sellerId = properties.getProperty("amazon.mws.seller.id");
-        this.marketplaceId = properties.getProperty("amazon.mws.marketplace.id");
-        this.endpoint = "https://mws.amazonservices.com";
+        creds.accessKey = properties.getProperty("amazon.mws.access.key");
+        creds.secretKey = properties.getProperty("amazon.mws.secret.key");
+        creds.sellerId = properties.getProperty("amazon.mws.seller.id");
+        creds.marketplaceId = properties.getProperty("amazon.mws.marketplace.id");
+        creds.endpoint = "https://mws.amazonservices.com";
+        return creds;
     }
 
     public String getAccessKey() {
