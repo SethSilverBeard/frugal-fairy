@@ -10,7 +10,6 @@ public class ProductsApiClientTest {
 	@Before
 	public void setupProductsApiClientTest() throws Exception {
 		client = ProductsApiClient.createProductsApiClient(Credentials.createUsingConfigFile());
-		
 	}
 	
 	@Test

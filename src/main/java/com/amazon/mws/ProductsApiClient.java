@@ -13,7 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.pricechecker.HttpRequestUtils;
 import com.pricechecker.Price;
@@ -21,14 +23,14 @@ import com.pricechecker.PriceChecker;
 
 public class ProductsApiClient implements PriceChecker {
 	
-	private static Logger logger = Logger.getLogger(ProductsApiClient.class.getName());
+	private static final Logger logger = LogManager.getLogger(ProductsApiClient.class);
 	
     private Credentials credentials;
     private SignatureCalculator signatureCalculator;
 	
 	private ProductsApiClient(Credentials credentials) {
 		this.credentials = Objects.requireNonNull(credentials);
-		this.signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products");
+		this.signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products/2011-10-01");
 
 	}
 	
@@ -39,8 +41,10 @@ public class ProductsApiClient implements PriceChecker {
 	 * @throws SignatureException 
 	 */
 	public String createGetLowestOffersUrlParameters(String asin) throws SignatureException {
+		Objects.requireNonNull(asin);
 		Map<String, String> urlParameters = new TreeMap<String,String>();
-		urlParameters.put("Action", "GetLowestPricedOffersForASIN");
+		urlParameters.put("Action", "GetLowestOfferListingsForASIN");
+		urlParameters.put("ASINList.ASIN.1", asin);
 		urlParameters.put("AWSAccessKeyId", credentials.getAccessKey());
 		urlParameters.put("MarketplaceId", credentials.getMarketplaceId()); //US Marketplace
 		urlParameters.put("SellerId", credentials.getSellerId());

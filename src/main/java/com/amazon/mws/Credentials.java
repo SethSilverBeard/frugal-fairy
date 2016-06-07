@@ -3,6 +3,8 @@ package com.amazon.mws;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -11,7 +13,7 @@ public class Credentials {
 
     private String accessKey;
     private String secretKey;
-    private String endpoint;
+    private URI endpoint;
     private String sellerId;
     private String marketplaceId;
 
@@ -19,7 +21,7 @@ public class Credentials {
         super();
     }
     
-    public static Credentials createUsingConfigFile() throws IOException {
+    public static Credentials createUsingConfigFile() throws IOException, URISyntaxException {
     	Credentials creds = new Credentials();
         Properties properties = new Properties();
         properties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + File.separator + "shoptasticles.config")));
@@ -27,7 +29,7 @@ public class Credentials {
         creds.secretKey = properties.getProperty("amazon.mws.secret.key");
         creds.sellerId = properties.getProperty("amazon.mws.seller.id");
         creds.marketplaceId = properties.getProperty("amazon.mws.marketplace.id");
-        creds.endpoint = "https://mws.amazonservices.com";
+        creds.endpoint = new URI("https://mws.amazonservices.com");
         return creds;
     }
 
@@ -39,7 +41,7 @@ public class Credentials {
         return secretKey;
     }
 
-    public String getEndpoint() {
+    public URI getEndpoint() {
         return endpoint;
     }
 

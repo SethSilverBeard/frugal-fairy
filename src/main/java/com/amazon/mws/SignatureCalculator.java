@@ -15,6 +15,8 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Created by wingert on 5/24/2016.
@@ -23,6 +25,7 @@ public class SignatureCalculator {
 
     private static final String CHARACTER_ENCODING = StandardCharsets.UTF_8.name();
     private static final String ALGORITHM = "HmacSHA256";
+    private static final Logger logger = LogManager.getLogger(SignatureCalculator.class);
 
     //Need 4 things to make a signature
     //1) MWS Credentials
@@ -30,7 +33,7 @@ public class SignatureCalculator {
     //3) API Section
     //4) URL Parameters
     private Credentials credentials;
-    private String apiSection = "Products";
+    private String apiSection;
 
     private SignatureCalculator(Credentials credentials, String apiSection) {
         this.credentials = Objects.requireNonNull(credentials);
@@ -66,7 +69,7 @@ public class SignatureCalculator {
         // Create flattened (String) representation
         StringBuilder data = new StringBuilder();
         data.append("POST\n");
-        data.append(credentials.getEndpoint() + "\n");
+        data.append(credentials.getEndpoint().getHost() + "\n");
         data.append("/" + apiSection + "\n");
 
         Iterator<Map.Entry<String, String>> pairs = sorted.entrySet().iterator();
@@ -78,7 +81,7 @@ public class SignatureCalculator {
                 data.append("&");
             }
         }
-
+        logger.debug("String to sign:\n{}", data);
         return data.toString();
     }
 
