@@ -40,7 +40,7 @@ public class ProductsApiClient implements PriceChecker {
 	 * @return
 	 * @throws SignatureException 
 	 */
-	public String createGetLowestOffersUrlParameters(String asin) throws SignatureException {
+	private String createGetLowestOffersUrlParameters(String asin) throws SignatureException {
 		Objects.requireNonNull(asin);
 		Map<String, String> urlParameters = new TreeMap<String,String>();
 		urlParameters.put("Action", "GetLowestOfferListingsForASIN");
@@ -99,12 +99,13 @@ public class ProductsApiClient implements PriceChecker {
 		    String line;
 		    while((line = rd.readLine()) != null) {
 		      response.append(line);
-		      response.append('\r');
+		      response.append("\n");
 		    }
 		    rd.close();
 		    if (connection.getResponseCode() != 200) {
 		    	throw new AmazonPriceCheckerException(response.toString());
 		    }
+		    logger.debug(response);
 		    return response.toString();
 		  } finally {
 		    if(connection != null) {

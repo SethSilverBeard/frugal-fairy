@@ -7,7 +7,7 @@
 
 	<Appenders>
 		<Appender type="Console" name="STDOUT">
-			<Layout type="PatternLayout" pattern="%m MDC%X%n" />
+			<Layout type="PatternLayout" pattern="[%p] %d %C [%t]: %replace{%m}{\n}{\\n}%n" />
 			<Filters>
 				<Filter type="MarkerFilter" marker="FLOW" onMatch="DENY"
 					onMismatch="NEUTRAL" />
@@ -25,9 +25,9 @@
 					onMismatch="DENY" />
 			</Filters>
 		</Appender>
-		<Appender type="File" name="File" fileName="${filename}">
+		<Appender type="File" name="File" fileName="${filename}" append="false">
 			<Layout type="PatternLayout">
-				<Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+				<Pattern>[%p] %d %C [%t]: %replace{%m}{\n}{\\n}%n</Pattern>
 			</Layout>
 		</Appender>
 	</Appenders>
@@ -48,6 +48,7 @@
 
 		<Root level="trace">
 		    <AppenderRef ref="STDOUT"/>
+		    <AppenderRef ref="FLOW"/>
 		    <AppenderRef ref="File"/>
 		</Root>
 	</Loggers>

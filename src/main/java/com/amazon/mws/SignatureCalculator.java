@@ -81,7 +81,7 @@ public class SignatureCalculator {
                 data.append("&");
             }
         }
-        logger.debug("String to sign:\n{}", data);
+        logger.debug("String to sign:{}", data);
         return data.toString();
     }
 
