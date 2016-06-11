@@ -27,7 +27,7 @@
 		</Appender>
 		<Appender type="File" name="File" fileName="${filename}" append="false">
 			<Layout type="PatternLayout">
-				<Pattern>[%p] %d %C [%t]: %replace{%m}{\n}{\\n}%n</Pattern>
+				<Pattern>[%p] %d %C [%t]: %m%n</Pattern>
 			</Layout>
 		</Appender>
 	</Appenders>

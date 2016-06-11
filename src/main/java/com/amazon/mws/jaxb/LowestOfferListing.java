@@ -1,0 +1,22 @@
+package com.amazon.mws.jaxb;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="LowestOfferListing")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class LowestOfferListing {
+	
+	@XmlElementRef
+	private Price price;
+
+	public Price getPrice() {
+		return price;
+	}
+
+	public void setPrice(Price price) {
+		this.price = price;
+	}
+}

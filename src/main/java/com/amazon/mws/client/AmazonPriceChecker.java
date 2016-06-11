@@ -1,9 +1,10 @@
-package com.amazon.mws;
+package com.amazon.mws.client;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.SignatureException;
@@ -14,21 +15,34 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.transform.stream.StreamSource;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.amazon.mws.jaxb.GetLowestOfferListingsForAsinResponse;
+import com.amazon.mws.jaxb.GetLowestOfferListingsForAsinResult;
+import com.amazon.mws.jaxb.LowestOfferListing;
+import com.amazon.mws.jaxb.Product;
 import com.pricechecker.HttpRequestUtils;
 import com.pricechecker.Price;
 import com.pricechecker.PriceChecker;
+import com.pricechecker.SearchCriteria;
 
-public class ProductsApiClient implements PriceChecker {
+public class AmazonPriceChecker implements PriceChecker {
 	
-	private static final Logger logger = LogManager.getLogger(ProductsApiClient.class);
+	private static final Logger logger = LogManager.getLogger(AmazonPriceChecker.class);
 	
     private Credentials credentials;
     private SignatureCalculator signatureCalculator;
 	
-	private ProductsApiClient(Credentials credentials) {
+	private AmazonPriceChecker(Credentials credentials) {
 		this.credentials = Objects.requireNonNull(credentials);
 		this.signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products/2011-10-01");
 
@@ -57,12 +71,12 @@ public class ProductsApiClient implements PriceChecker {
 		return HttpRequestUtils.mapToQueryString(urlParameters);
 	}
 	
-	public static ProductsApiClient createProductsApiClient(Credentials credentials) {
-		return new ProductsApiClient(credentials);
+	public static AmazonPriceChecker createProductsApiClient(Credentials credentials) {
+		return new AmazonPriceChecker(credentials);
 	}
 	
-	public String findOffers(String asin) throws Exception {
-		HttpURLConnection connection = null;  
+	public String findOffersAsString(String asin) throws Exception {
+		HttpURLConnection connection = null;
 		  try {
 		    //Create connection
 		    URL url = new URL(credentials.getEndpoint() + "/Products/2011-10-01");
@@ -99,7 +113,6 @@ public class ProductsApiClient implements PriceChecker {
 		    String line;
 		    while((line = rd.readLine()) != null) {
 		      response.append(line);
-		      response.append("\n");
 		    }
 		    rd.close();
 		    if (connection.getResponseCode() != 200) {
@@ -122,8 +135,41 @@ public class ProductsApiClient implements PriceChecker {
     }
 
 	@Override
-	public List<Price> getLowestPrices() {
-		// TODO Auto-generated method stub
+	public List<Price> findPrices(SearchCriteria searchCriteria) {
 		return null;
 	}
+
+	public List<Price> parseAmazonOffersXml(String xml) {
+		try {
+			JAXBContext jaxbContext = JAXBContext.newInstance(GetLowestOfferListingsForAsinResponse.class);
+			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+			//begin lines to ignore namespace
+			XMLInputFactory xif = XMLInputFactory.newFactory();
+			xif.setProperty(XMLInputFactory.IS_NAMESPACE_AWARE, false); // this is the magic line
+			StreamSource source = new StreamSource(new StringReader(xml));
+			XMLStreamReader xsr = xif.createXMLStreamReader(source);
+			//end lines to ignore namespace
+			GetLowestOfferListingsForAsinResponse getLowestOffersReponse = (GetLowestOfferListingsForAsinResponse) jaxbUnmarshaller.unmarshal(xsr);
+			List<GetLowestOfferListingsForAsinResult> getLowestOfferListingsForAsinResults = getLowestOffersReponse.getGetLowestOfferListingsForAsinResult();
+			if (getLowestOfferListingsForAsinResults.isEmpty()) {
+				throw new AmazonPriceCheckerException("Zero GetLowestOfferListingsForAsinResult elements found when calling GetLowestOfferListingsForASIN");
+			}
+			Product product = getLowestOfferListingsForAsinResults.get(0).getProduct();
+			if (product == null) {
+				throw new AmazonPriceCheckerException("Zero Products elements found when parsing GetLowestOfferListingsForASIN response");
+			}
+			List<LowestOfferListing> lowestOfferListings = product.getLowestOfferListings();
+			if (lowestOfferListings == null || lowestOfferListings.isEmpty()) {
+				throw new AmazonPriceCheckerException("Zero LowestOfferListing elements found when parsing GetLowestOfferListingsForASIN response");
+			}
+			for (LowestOfferListing lowestOffer : lowestOfferListings) {
+				logger.info(lowestOffer.getPrice().getLandedPrice().getAmount());
+			}
+		} catch (JAXBException | XMLStreamException e) {
+			throw new AmazonPriceCheckerException("Unable to parse XML response from Amazon Products API", e);
+		}
+		return null;
+		
+	}
+
 }

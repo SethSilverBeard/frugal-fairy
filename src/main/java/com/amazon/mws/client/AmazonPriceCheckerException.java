@@ -1,4 +1,4 @@
-package com.amazon.mws;
+package com.amazon.mws.client;
 
 public class AmazonPriceCheckerException extends RuntimeException {
 

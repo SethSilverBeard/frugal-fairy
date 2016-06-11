@@ -1,4 +1,4 @@
-package com.amazon.mws;
+package com.amazon.mws.client;
 
 
 import java.io.File;
