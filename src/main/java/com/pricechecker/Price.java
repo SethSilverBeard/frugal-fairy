@@ -1,11 +1,16 @@
 package com.pricechecker;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Price {
+	
 	private String sellerName;
 	private String shipFromState;
 	private String httpLink;
+	private BigDecimal itemPrice;
+	private BigDecimal shippingPrice;
+	private BigDecimal total;
 	private Date dateRetrieved;
 	
 	public String getSellerName() {
@@ -31,5 +36,29 @@ public class Price {
 	}
 	public void setDateRetrieved(Date dateRetrieved) {
 		this.dateRetrieved = dateRetrieved;
+	}
+	public BigDecimal getTotal() {
+		return total;
+	}
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
+	public BigDecimal getItemPrice() {
+		return itemPrice;
+	}
+	public void setItemPrice(BigDecimal itemPrice) {
+		this.itemPrice = itemPrice;
+	}
+	public BigDecimal getShippingPrice() {
+		return shippingPrice;
+	}
+	public void setShippingPrice(BigDecimal shippingPrice) {
+		this.shippingPrice = shippingPrice;
+	}
+	@Override
+	public String toString() {
+		return "Price [sellerName=" + sellerName + ", shipFromState=" + shipFromState + ", httpLink=" + httpLink
+				+ ", itemPrice=" + itemPrice + ", shippingPrice=" + shippingPrice + ", total=" + total
+				+ ", dateRetrieved=" + dateRetrieved + "]";
 	}
 }

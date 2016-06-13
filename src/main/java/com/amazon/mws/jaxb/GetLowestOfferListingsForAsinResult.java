@@ -33,4 +33,28 @@ public class GetLowestOfferListingsForAsinResult {
 		this.product = product;
 	}
 
+	public String getAsin() {
+		return asin;
+	}
+
+	public void setAsin(String asin) {
+		this.asin = asin;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Error getError() {
+		return error;
+	}
+
+	public void setError(Error error) {
+		this.error = error;
+	}
+
 }

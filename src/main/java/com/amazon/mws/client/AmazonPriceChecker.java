@@ -9,6 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.SignatureException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -154,7 +155,8 @@ public class AmazonPriceChecker implements PriceChecker {
 			if (getLowestOfferListingsForAsinResults.isEmpty()) {
 				throw new AmazonPriceCheckerException("Zero GetLowestOfferListingsForAsinResult elements found when calling GetLowestOfferListingsForASIN");
 			}
-			Product product = getLowestOfferListingsForAsinResults.get(0).getProduct();
+			GetLowestOfferListingsForAsinResult getLowestOfferListingsForAsinResult = getLowestOfferListingsForAsinResults.get(0);
+			Product product = getLowestOfferListingsForAsinResult.getProduct();
 			if (product == null) {
 				throw new AmazonPriceCheckerException("Zero Products elements found when parsing GetLowestOfferListingsForASIN response");
 			}
@@ -162,14 +164,22 @@ public class AmazonPriceChecker implements PriceChecker {
 			if (lowestOfferListings == null || lowestOfferListings.isEmpty()) {
 				throw new AmazonPriceCheckerException("Zero LowestOfferListing elements found when parsing GetLowestOfferListingsForASIN response");
 			}
+			//loop through offers and populate prices
+			List<Price> prices = new ArrayList<Price>();
 			for (LowestOfferListing lowestOffer : lowestOfferListings) {
-				logger.info(lowestOffer.getPrice().getLandedPrice().getAmount());
+				Price price = new Price();
+				price.setDateRetrieved(new Date());
+				price.setItemPrice(lowestOffer.getPrice().getListingPrice().getAmount());
+				price.setShippingPrice(lowestOffer.getPrice().getShippingPrice().getAmount());
+				price.setTotal(lowestOffer.getPrice().getLandedPrice().getAmount());
+				price.setHttpLink("https://www.amazon.com/dp/" + getLowestOfferListingsForAsinResult.getAsin());
+				prices.add(price);
+				logger.info(price);
 			}
+			return prices;
 		} catch (JAXBException | XMLStreamException e) {
 			throw new AmazonPriceCheckerException("Unable to parse XML response from Amazon Products API", e);
 		}
-		return null;
-		
 	}
 
 }
