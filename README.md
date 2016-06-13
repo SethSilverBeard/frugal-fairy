@@ -1,1 +1,1 @@
-# SethsEternalShoptasticles
+# Hooray!
