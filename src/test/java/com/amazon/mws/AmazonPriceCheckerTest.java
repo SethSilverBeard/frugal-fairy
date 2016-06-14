@@ -1,8 +1,8 @@
 package com.amazon.mws;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,6 +32,23 @@ public class AmazonPriceCheckerTest {
 	public void testParsingXmlFromProductsApi() throws Exception {
 		String xml = FileUtil.readFileFromClasspath("amazonSampleOffers.xml");
 		List<Price> prices = client.parseAmazonOffersXml(xml);
-		Assert.assertThat(5, CoreMatchers.is(prices.size()));
+		Price expectedFirstPrice = new Price();
+		expectedFirstPrice.setTotal(new BigDecimal("287.99"));
+		expectedFirstPrice.setShippingPrice(new BigDecimal("0.00"));
+		expectedFirstPrice.setItemPrice(new BigDecimal("287.99"));
+		expectedFirstPrice.setHttpLink("https://www.amazon.com/dp/B01CCLTJFQ");
+		
+		Assert.assertEquals(5, prices.size());
+		Price actualFirstPrice = prices.get(0);
+		Assert.assertEquals(new BigDecimal("287.99"), actualFirstPrice.getItemPrice());
+		Assert.assertEquals(new BigDecimal("0.00"), actualFirstPrice.getShippingPrice());
+		Assert.assertEquals(new BigDecimal("287.99"), actualFirstPrice.getTotal());
+		Assert.assertEquals("https://www.amazon.com/dp/B01CCLTJFQ", actualFirstPrice.getHttpLink());
+		Assert.assertNotNull(actualFirstPrice.getDateRetrieved());
+		//validate remaining total prices
+		Assert.assertEquals(new BigDecimal("295.00"), prices.get(1).getTotal());
+		Assert.assertEquals(new BigDecimal("301.09"), prices.get(2).getTotal());
+		Assert.assertEquals(new BigDecimal("301.10"), prices.get(3).getTotal());
+		Assert.assertEquals(new BigDecimal("304.48"), prices.get(4).getTotal());
 	}
 }
