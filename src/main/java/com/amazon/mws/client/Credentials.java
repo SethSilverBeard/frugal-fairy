@@ -21,15 +21,20 @@ public class Credentials {
         super();
     }
     
-    public static Credentials createUsingConfigFile() throws IOException, URISyntaxException {
-    	Credentials creds = new Credentials();
-        Properties properties = new Properties();
-        properties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + File.separator + "shoptasticles.config")));
-        creds.accessKey = properties.getProperty("amazon.mws.access.key");
-        creds.secretKey = properties.getProperty("amazon.mws.secret.key");
-        creds.sellerId = properties.getProperty("amazon.mws.seller.id");
-        creds.marketplaceId = properties.getProperty("amazon.mws.marketplace.id");
-        creds.endpoint = new URI("https://mws.amazonservices.com");
+    public static Credentials createUsingConfigFile() throws AmazonPriceCheckerException {
+    	Credentials creds;
+		try {
+			creds = new Credentials();
+			Properties properties = new Properties();
+			properties.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + File.separator + "shoptasticles.config")));
+			creds.accessKey = properties.getProperty("amazon.mws.access.key");
+			creds.secretKey = properties.getProperty("amazon.mws.secret.key");
+			creds.sellerId = properties.getProperty("amazon.mws.seller.id");
+			creds.marketplaceId = properties.getProperty("amazon.mws.marketplace.id");
+			creds.endpoint = new URI("https://mws.amazonservices.com");
+		} catch (IOException | URISyntaxException e) {
+			throw new AmazonPriceCheckerException("Unable to create AmazonPriceChecker due to config file issues", e);
+		}
         return creds;
     }
 

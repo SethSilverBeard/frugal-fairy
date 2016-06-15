@@ -1,9 +1,13 @@
-package com.listingchecker;
+package com.listingfinder;
 
 import java.math.BigDecimal;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.pricechecker.Listing;
+import com.pricechecker.LowPriceTrigger;
+import com.pricechecker.NotificationTrigger;
 
 public class LowPriceTriggerTest {
 

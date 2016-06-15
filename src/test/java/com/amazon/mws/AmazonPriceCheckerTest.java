@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import com.amazon.mws.client.AmazonPriceChecker;
 import com.amazon.mws.client.Credentials;
-import com.listingchecker.Listing;
+import com.pricechecker.Listing;
 import com.pricechecker.util.FileUtil;
 
 public class AmazonPriceCheckerTest {

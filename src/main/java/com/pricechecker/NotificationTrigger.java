@@ -1,4 +1,4 @@
-package com.listingchecker;
+package com.pricechecker;
 
 public interface NotificationTrigger {
 	//take in a price

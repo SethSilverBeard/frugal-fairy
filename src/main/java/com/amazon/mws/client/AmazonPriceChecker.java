@@ -31,10 +31,10 @@ import com.amazon.mws.jaxb.GetLowestOfferListingsForAsinResponse;
 import com.amazon.mws.jaxb.GetLowestOfferListingsForAsinResult;
 import com.amazon.mws.jaxb.LowestOfferListing;
 import com.amazon.mws.jaxb.Product;
-import com.listingchecker.HttpRequestUtils;
-import com.listingchecker.Listing;
-import com.listingchecker.ListingFinder;
-import com.listingchecker.SearchCriteria;
+import com.pricechecker.HttpRequestUtils;
+import com.pricechecker.Listing;
+import com.pricechecker.ListingFinder;
+import com.pricechecker.SearchCriteria;
 
 public class AmazonPriceChecker implements ListingFinder {
 	
@@ -137,7 +137,13 @@ public class AmazonPriceChecker implements ListingFinder {
 
 	@Override
 	public List<Listing> findListings(SearchCriteria searchCriteria) {
-		return null;
+		Objects.requireNonNull(searchCriteria);
+		try {
+			String offers = findOffersAsString(searchCriteria.getSearchString());
+			return parseAmazonOffersXml(offers);
+		} catch (Exception e) {
+			throw new AmazonPriceCheckerException(e);
+		}
 	}
 
 	public List<Listing> parseAmazonOffersXml(String xml) {

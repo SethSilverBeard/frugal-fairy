@@ -1,4 +1,4 @@
-package com.listingchecker;
+package com.pricechecker;
 
 import java.util.Objects;
 

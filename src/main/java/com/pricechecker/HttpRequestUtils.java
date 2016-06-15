@@ -1,4 +1,4 @@
-package com.listingchecker;
+package com.pricechecker;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
