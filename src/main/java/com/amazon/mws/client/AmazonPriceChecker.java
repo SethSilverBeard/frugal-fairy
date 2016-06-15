@@ -31,12 +31,12 @@ import com.amazon.mws.jaxb.GetLowestOfferListingsForAsinResponse;
 import com.amazon.mws.jaxb.GetLowestOfferListingsForAsinResult;
 import com.amazon.mws.jaxb.LowestOfferListing;
 import com.amazon.mws.jaxb.Product;
-import com.pricechecker.HttpRequestUtils;
-import com.pricechecker.Price;
-import com.pricechecker.PriceChecker;
-import com.pricechecker.SearchCriteria;
+import com.listingchecker.HttpRequestUtils;
+import com.listingchecker.Listing;
+import com.listingchecker.ListingFinder;
+import com.listingchecker.SearchCriteria;
 
-public class AmazonPriceChecker implements PriceChecker {
+public class AmazonPriceChecker implements ListingFinder {
 	
 	private static final Logger logger = LogManager.getLogger(AmazonPriceChecker.class);
 	
@@ -136,11 +136,11 @@ public class AmazonPriceChecker implements PriceChecker {
     }
 
 	@Override
-	public List<Price> findPrices(SearchCriteria searchCriteria) {
+	public List<Listing> findListings(SearchCriteria searchCriteria) {
 		return null;
 	}
 
-	public List<Price> parseAmazonOffersXml(String xml) {
+	public List<Listing> parseAmazonOffersXml(String xml) {
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(GetLowestOfferListingsForAsinResponse.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -165,9 +165,9 @@ public class AmazonPriceChecker implements PriceChecker {
 				throw new AmazonPriceCheckerException("Zero LowestOfferListing elements found when parsing GetLowestOfferListingsForASIN response");
 			}
 			//loop through offers and populate prices
-			List<Price> prices = new ArrayList<Price>();
+			List<Listing> prices = new ArrayList<Listing>();
 			for (LowestOfferListing lowestOffer : lowestOfferListings) {
-				Price price = new Price();
+				Listing price = new Listing();
 				price.setDateRetrieved(new Date());
 				price.setItemPrice(lowestOffer.getPrice().getListingPrice().getAmount());
 				price.setShippingPrice(lowestOffer.getPrice().getShippingPrice().getAmount());

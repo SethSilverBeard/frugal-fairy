@@ -1,9 +1,9 @@
-package com.pricechecker;
+package com.listingchecker;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Price {
+public class Listing {
 	
 	private String sellerName;
 	private String shipFromState;

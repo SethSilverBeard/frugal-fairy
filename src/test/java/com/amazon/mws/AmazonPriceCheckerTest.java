@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import com.amazon.mws.client.AmazonPriceChecker;
 import com.amazon.mws.client.Credentials;
-import com.pricechecker.Price;
+import com.listingchecker.Listing;
 import com.pricechecker.util.FileUtil;
 
 public class AmazonPriceCheckerTest {
@@ -31,15 +31,15 @@ public class AmazonPriceCheckerTest {
 	@Test
 	public void testParsingXmlFromProductsApi() throws Exception {
 		String xml = FileUtil.readFileFromClasspath("amazonSampleOffers.xml");
-		List<Price> prices = client.parseAmazonOffersXml(xml);
-		Price expectedFirstPrice = new Price();
+		List<Listing> prices = client.parseAmazonOffersXml(xml);
+		Listing expectedFirstPrice = new Listing();
 		expectedFirstPrice.setTotal(new BigDecimal("287.99"));
 		expectedFirstPrice.setShippingPrice(new BigDecimal("0.00"));
 		expectedFirstPrice.setItemPrice(new BigDecimal("287.99"));
 		expectedFirstPrice.setHttpLink("https://www.amazon.com/dp/B01CCLTJFQ");
 		
 		Assert.assertEquals(5, prices.size());
-		Price actualFirstPrice = prices.get(0);
+		Listing actualFirstPrice = prices.get(0);
 		Assert.assertEquals(new BigDecimal("287.99"), actualFirstPrice.getItemPrice());
 		Assert.assertEquals(new BigDecimal("0.00"), actualFirstPrice.getShippingPrice());
 		Assert.assertEquals(new BigDecimal("287.99"), actualFirstPrice.getTotal());
