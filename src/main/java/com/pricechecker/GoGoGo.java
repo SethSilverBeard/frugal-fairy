@@ -23,7 +23,12 @@ public class GoGoGo {
 
 			@Override
 			public void run() {
-				findEternalMastersBoxes();
+				try {
+					findEternalMastersBoxes();
+				} catch (Throwable e) { //need this or any exceptions (like AmazonPriceCheckerException) get swallowed.
+					//see http://stackoverflow.com/a/24902026
+					logger.error(e);
+				}
 			}
 			
 		}, 0, 30, TimeUnit.SECONDS);
@@ -40,6 +45,7 @@ public class GoGoGo {
 				logger.info("OMG FREAK OUTTTTTT!!!! Go buy {} for $[{}]", listing.getHttpLink(), listing.getTotal());
 			} else {
 				logger.debug("Sad day, no trigger for Amazon's $[{}]....",listing.getTotal());
+				//throw new AmazonPriceCheckerException("Harrro");
 			}
 		}
 	}
