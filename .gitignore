@@ -1,2 +1,5 @@
 /target/
-/shoptasticles.config
+.idea/
+.settings/
+.vscode/
+.factorypath
