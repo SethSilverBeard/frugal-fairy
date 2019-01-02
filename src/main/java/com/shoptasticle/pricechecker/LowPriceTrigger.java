@@ -10,7 +10,7 @@ public class LowPriceTrigger implements NotificationTrigger {
 	/**
 	 * Create a trigger which fires when price reaches {@code lowPrice} or below
 	 * 
-	 * @param lowPrice Price at which to trigger notifications (Offer price must be <= lowPrice to trigger)
+	 * @param lowPrice MwsPrice at which to trigger notifications (Offer price must be <= lowPrice to trigger)
 	 */
 	public LowPriceTrigger(final BigDecimal lowPrice) {
 		Objects.requireNonNull(lowPrice);
@@ -18,7 +18,7 @@ public class LowPriceTrigger implements NotificationTrigger {
 	}
 	
 	@Override
-	public boolean shouldTrigger(Listing listing) {
+	public boolean shouldTrigger(Price listing) {
 		if (Objects.isNull(listing.getTotal()) || listing.getTotal().compareTo(price) > 0) {
 			return false;
 		}

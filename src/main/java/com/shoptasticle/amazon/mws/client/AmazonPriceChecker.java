@@ -5,10 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shoptasticle.amazon.mws.jaxb.GetLowestOfferListingsForAsinResponse;
 import com.shoptasticle.amazon.mws.jaxb.GetLowestOfferListingsForAsinResult;
 import com.shoptasticle.amazon.mws.jaxb.LowestOfferListing;
-import com.shoptasticle.amazon.mws.jaxb.Product;
+import com.shoptasticle.amazon.mws.jaxb.MwsProduct;
 import com.shoptasticle.pricechecker.HttpRequestUtils;
-import com.shoptasticle.pricechecker.Listing;
-import com.shoptasticle.pricechecker.ListingFinder;
+import com.shoptasticle.pricechecker.Price;
+import com.shoptasticle.pricechecker.PriceFinder;
 import com.shoptasticle.pricechecker.SearchCriteria;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,10 +21,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.SignatureException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
-public class AmazonPriceChecker implements ListingFinder {
+public class AmazonPriceChecker implements PriceFinder {
 
 	private ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.xml().featuresToDisable(DeserializationFeature.FAIL_ON_NULL_CREATOR_PROPERTIES).build();
 
@@ -128,7 +129,7 @@ public class AmazonPriceChecker implements ListingFinder {
 	}
 
 	@Override
-	public List<Listing> findListings(SearchCriteria searchCriteria) {
+	public List<Price> findListings(SearchCriteria searchCriteria) {
 		Objects.requireNonNull(searchCriteria);
 		try {
 			String offers = findOffersAsString(searchCriteria.getSearchString());
@@ -138,7 +139,7 @@ public class AmazonPriceChecker implements ListingFinder {
 		}
 	}
 
-	public List<Listing> parseAmazonOffersXml(String xml) {
+	public List<Price> parseAmazonOffersXml(String xml) {
 		try {
 			GetLowestOfferListingsForAsinResponse getLowestOffersReponse = objectMapper.readValue(xml, GetLowestOfferListingsForAsinResponse.class);
 			List<GetLowestOfferListingsForAsinResult> getLowestOfferListingsForAsinResults = getLowestOffersReponse
@@ -149,25 +150,25 @@ public class AmazonPriceChecker implements ListingFinder {
 			}
 			GetLowestOfferListingsForAsinResult getLowestOfferListingsForAsinResult = getLowestOfferListingsForAsinResults
 					.get(0);
-			Product product = getLowestOfferListingsForAsinResult.getProduct();
-			if (product == null) {
+			MwsProduct mwsProduct = getLowestOfferListingsForAsinResult.getMwsProduct();
+			if (mwsProduct == null) {
 				throw new AmazonPriceCheckerException(
 						"Zero Products elements found when parsing GetLowestOfferListingsForASIN response");
 			}
-			List<LowestOfferListing> lowestOfferListings = product.getLowestOfferListings();
+			List<LowestOfferListing> lowestOfferListings = mwsProduct.getLowestOfferListings();
 			if (lowestOfferListings == null || lowestOfferListings.isEmpty()) {
 				throw new AmazonPriceCheckerException(
-						"Zero [Product > LowestOfferListing] elements found when parsing GetLowestOfferListingsForASIN response");
+						"Zero [MwsProduct > LowestOfferListing] elements found when parsing GetLowestOfferListingsForASIN response");
 			}
 			// loop through offers and populate prices
-			List<Listing> prices = new ArrayList<Listing>();
+			List<Price> prices = new ArrayList<Price>();
 			for (LowestOfferListing lowestOffer : lowestOfferListings) {
-				Listing price = new Listing();
-				price.setDateRetrieved(new Date());
-				price.setItemPrice(lowestOffer.getPrice().getListingPrice().getAmount());
-				price.setShippingPrice(lowestOffer.getPrice().getShippingPrice().getAmount());
-				price.setTotal(lowestOffer.getPrice().getLandedPrice().getAmount());
-				price.setHttpLink("https://www.amazon.com/dp/" + getLowestOfferListingsForAsinResult.getAsin());
+				Price price = new Price();
+				price.setDateRetrieved(LocalDateTime.now());
+				price.setItemPrice(lowestOffer.getMwsPrice().getListingPrice().getAmount());
+				price.setShippingPrice(lowestOffer.getMwsPrice().getShippingPrice().getAmount());
+				price.setTotal(lowestOffer.getMwsPrice().getLandedPrice().getAmount());
+				price.setUrl("https://www.amazon.com/dp/" + getLowestOfferListingsForAsinResult.getAsin());
 				prices.add(price);
 				logger.info(price);
 			}

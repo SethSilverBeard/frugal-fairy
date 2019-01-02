@@ -3,8 +3,8 @@ package com.shoptasticle.amazon.mws.jaxb;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@JacksonXmlRootElement(localName = "Price")
-public class Price {
+@JacksonXmlRootElement(localName = "MwsPrice")
+public class MwsPrice {
 
 	@JacksonXmlProperty(localName = "LandedPrice")
 	private PriceType landedPrice;
@@ -15,7 +15,7 @@ public class Price {
 	@JacksonXmlProperty(localName = "Shipping")
 	private PriceType shippingPrice;
 	
-	public Price() {
+	public MwsPrice() {
 	}
 
 	public PriceType getLandedPrice() {

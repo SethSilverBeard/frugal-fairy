@@ -6,17 +6,17 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 @JacksonXmlRootElement(localName = "LowestOfferListing")
 public class LowestOfferListing {
 
-	@JacksonXmlProperty(localName = "Price")
-	private Price price;
+	@JacksonXmlProperty(localName = "MwsPrice")
+	private MwsPrice mwsPrice;
 	
 	private Qualifiers qualifiers;
 	
-	public Price getPrice() {
-		return price;
+	public MwsPrice getMwsPrice() {
+		return mwsPrice;
 	}
 
-	public void setPrice(Price price) {
-		this.price = price;
+	public void setMwsPrice(MwsPrice mwsPrice) {
+		this.mwsPrice = mwsPrice;
 	}
 
 	public Qualifiers getQualifiers() {

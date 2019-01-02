@@ -37,16 +37,16 @@ public class GoGoGo {
 	}
 
 	public void findEternalMastersBoxes() {
-		List<Listing> listings = amazonChecker.findListings(SearchCriteria.createStringSearchCriteria("B01CCLTJFQ"));  //Eternal Masters ASIN
-		NotificationTrigger priceTrigger = new LowPriceTrigger(new BigDecimal("240"));
-		
-		for (Listing listing : listings) {
-			if (priceTrigger.shouldTrigger(listing)) {
-				logger.info("OMG FREAK OUTTTTTT!!!! Go buy {} for $[{}]", listing.getHttpLink(), listing.getTotal());
-			} else {
-				logger.debug("Sad day, no trigger for Amazon's $[{}]....",listing.getTotal());
-				//throw new AmazonPriceCheckerException("Harrro");
-			}
+		List<Price> prices = amazonChecker.findListings(SearchCriteria.createStringSearchCriteria("B01CCLTJFQ"));  //Eternal Masters ASIN
+		Product product = new Product();
+		product.setPrices(prices);
+		product.setTargetPrice(new BigDecimal("240"));
+
+		if (product.getGoodPrices().isEmpty()) {
+			logger.debug("Sad day, {} prices but no triggers. Cheapest is $[{}]....", product.getPrices().size(), product.getPrices().get(0));
+		} else {
+			Price bestPrice = product.getGoodPrices().get(0);
+			logger.info("OMG FREAK OUTTTTTT!!!! Go buy {} for $[{}]", bestPrice.getUrl(), bestPrice.getTotal());
 		}
 	}
 	

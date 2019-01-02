@@ -1,7 +1,7 @@
 package com.shoptasticle.amazon.mws;
 
 import com.shoptasticle.amazon.mws.client.AmazonPriceChecker;
-import com.shoptasticle.pricechecker.Listing;
+import com.shoptasticle.pricechecker.Price;
 import com.shoptasticle.pricechecker.util.FileUtil;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class AmazonPriceCheckerTest {
+public class AmazonMwsPriceCheckerTest {
 
 	private static final String ETERNAL_MASTERS_BOOSTER_BOX_ASIN = "B01CCLTJFQ";
 
@@ -30,19 +30,19 @@ public class AmazonPriceCheckerTest {
 	@Test
 	public void testParsingXmlFromProductsApi() throws Exception {
 		String xml = FileUtil.readFileFromClasspath("amazonSampleOffers.xml");
-		List<Listing> prices = client.parseAmazonOffersXml(xml);
-		Listing expectedFirstPrice = new Listing();
+		List<Price> prices = client.parseAmazonOffersXml(xml);
+		Price expectedFirstPrice = new Price();
 		expectedFirstPrice.setTotal(new BigDecimal("287.99"));
 		expectedFirstPrice.setShippingPrice(new BigDecimal("0.00"));
 		expectedFirstPrice.setItemPrice(new BigDecimal("287.99"));
-		expectedFirstPrice.setHttpLink("https://www.amazon.com/dp/B01CCLTJFQ");
+		expectedFirstPrice.setUrl("https://www.amazon.com/dp/B01CCLTJFQ");
 
 		Assert.assertEquals(5, prices.size());
-		Listing actualFirstPrice = prices.get(0);
+		Price actualFirstPrice = prices.get(0);
 		Assert.assertEquals(new BigDecimal("287.99"), actualFirstPrice.getItemPrice());
 		Assert.assertEquals(new BigDecimal("0.00"), actualFirstPrice.getShippingPrice());
 		Assert.assertEquals(new BigDecimal("287.99"), actualFirstPrice.getTotal());
-		Assert.assertEquals("https://www.amazon.com/dp/B01CCLTJFQ", actualFirstPrice.getHttpLink());
+		Assert.assertEquals("https://www.amazon.com/dp/B01CCLTJFQ", actualFirstPrice.getUrl());
 		Assert.assertNotNull(actualFirstPrice.getDateRetrieved());
 		//validate remaining total prices
 		Assert.assertEquals(new BigDecimal("295.00"), prices.get(1).getTotal());

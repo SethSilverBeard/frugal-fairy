@@ -12,8 +12,8 @@ public class GetLowestOfferListingsForAsinResult {
     @JacksonXmlProperty(localName = "status", isAttribute = true)
 	private String status;
 
-    @JacksonXmlProperty(localName = "Product")
-	private Product product;
+    @JacksonXmlProperty(localName = "MwsProduct")
+	private MwsProduct mwsProduct;
 
     @JacksonXmlProperty(localName = "Error")
 	private Error error;
@@ -21,12 +21,12 @@ public class GetLowestOfferListingsForAsinResult {
 	public GetLowestOfferListingsForAsinResult() {
 	}
 
-	public Product getProduct() {
-		return product;
+	public MwsProduct getMwsProduct() {
+		return mwsProduct;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setMwsProduct(MwsProduct mwsProduct) {
+		this.mwsProduct = mwsProduct;
 	}
 
 	public String getAsin() {
