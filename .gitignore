@@ -3,3 +3,6 @@
 .settings/
 .vscode/
 .factorypath
+.classpath
+.project
+*.iml
