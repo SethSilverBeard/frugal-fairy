@@ -2,21 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfcbc631-7a3d-48c9-8a18-53b3d9f2b3e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricechecker/listingfinder/LowPriceTriggerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frugal-fairy.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/WebPriceFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LobsterGlovesPriceFinderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/WebPriceFinderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/AmazonPriceChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/AmazonPriceChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/AmazonPriceChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/AmazonPriceFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/LowestOfferListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/LowestOfferListing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsPrice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/GoGoGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/GoGoGo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Listing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/ListingFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/PriceFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/LowPriceTrigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/LowPriceTrigger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/NotificationTrigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/NotificationTrigger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/shoptasticle/amazon/mws/AmazonPriceCheckerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/shoptasticle/amazon/mws/AmazonMwsPriceCheckerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/shoptasticle/listingfinder/LowPriceTriggerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/GoGoGo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/GoGoGo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/HttpRequestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/HttpRequestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/LowPriceTrigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/LowPriceTrigger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/NotificationTrigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/NotificationTrigger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Price.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/PriceFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/PriceFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/SearchCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/SearchCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/shoptasticle/amazon/mws/AmazonMwsPriceCheckerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/AmazonMwsPriceCheckerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricechecker/listingfinder/LowPriceTriggerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LowPriceTriggerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricechecker/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/util/FileUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,64 +32,104 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/AmazonPriceChecker.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/AmazonPriceFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="131" column="23" selection-start-line="131" selection-start-column="23" selection-end-line="131" selection-end-column="23" />
+            <state relative-caret-position="90">
+              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/SignatureCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/Credentials.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/AmazonMwsPriceCheckerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LowPriceTriggerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-270">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/WebPriceFinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#594#595#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/io/github/bonigarcia/webdrivermanager/3.2.0/webdrivermanager-3.2.0-sources.jar!/io/github/bonigarcia/wdm/WebDriverManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/WebPriceFinderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#839#840#0" expanded="true" />
+                <element signature="e#925#926#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LobsterGlovesPriceFinderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
-              <folding>
-                <element signature="e#419#420#0" expanded="true" />
-                <element signature="e#444#445#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#786#787#0" expanded="true" />
-                <element signature="e#858#859#0" expanded="true" />
-                <element signature="e#934#935#0" expanded="true" />
-                <element signature="e#1038#1039#0" expanded="true" />
-                <element signature="e#1076#1077#0" expanded="true" />
-                <element signature="e#1122#1123#0" expanded="true" />
-                <element signature="e#1255#1256#0" expanded="true" />
-                <element signature="e#1287#1288#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/NotificationTrigger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="73" selection-start-line="3" selection-start-column="73" selection-end-line="3" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricechecker/listingfinder/LowPriceTriggerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state relative-caret-position="306">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,52 +138,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsPrice.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/PriceFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/LowPriceTrigger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="20" selection-start-line="20" selection-end-line="25" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/GoGoGo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="612">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
         </entry>
@@ -167,18 +172,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/LowestOfferListing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/Qualifiers.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/Price.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/PriceType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/Credentials.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsPrice.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/AmazonPriceChecker.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/shoptasticle/listingfinder/LowMwsPriceTriggerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/shoptasticle/listingfinder/LowPriceTriggerTest.java" />
@@ -187,12 +187,32 @@
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Product.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricechecker/listingfinder/LowPriceTriggerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/LowestOfferListing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/SearchCriteria.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Price.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/SearchCriteria.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/HttpRequestUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/LowPriceTrigger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/NotificationTrigger.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/WebPriceFinderTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/AmazonPriceFinder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/WebPriceFinder.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LowPriceTriggerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/AmazonMwsPriceCheckerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LobsterGlovesPriceFinderTest.java" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
@@ -210,14 +230,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="frugal-fairy" type="b2602c69:ProjectViewProjectNode" />
               <item name="frugal-fairy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frugal-fairy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frugal-fairy" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frugal-fairy" type="b2602c69:ProjectViewProjectNode" />
@@ -259,15 +284,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jaxb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frugal-fairy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frugal-fairy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pricechecker" type="462c0819:PsiDirectoryNode" />
+              <item name="pricefinder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frugal-fairy" type="b2602c69:ProjectViewProjectNode" />
@@ -295,7 +312,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mws" type="462c0819:PsiDirectoryNode" />
+              <item name="pricefinder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frugal-fairy" type="b2602c69:ProjectViewProjectNode" />
@@ -303,7 +320,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="listingfinder" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frugal-fairy" type="b2602c69:ProjectViewProjectNode" />
@@ -322,10 +339,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.shoptasticle.pricefinder" />
+      <recent name="com.shoptasticle" />
       <recent name="com.shoptasticle.pricechecker" />
     </key>
   </component>
@@ -341,25 +360,34 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LowPriceTriggerTest.testSortedPrices">
-    <configuration name="All in frugal-fairy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.WebPriceFinderTest.testLobsterGlovesGetPrice">
+    <configuration name="AmazonMwsPriceCheckerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="frugal-fairy" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shoptasticle.pricefinder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.shoptasticle.pricefinder" />
+      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricefinder.AmazonMwsPriceCheckerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LowPriceTriggerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AmazonMwsPriceCheckerTest.testParsingXmlFromProductsApi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="frugal-fairy" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.shoptasticle.pricechecker.listingfinder.*" />
+          <option name="PATTERN" value="com.shoptasticle.pricefinder.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.shoptasticle.pricechecker.listingfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricechecker.listingfinder.LowPriceTriggerTest" />
+      <option name="PACKAGE_NAME" value="com.shoptasticle.pricefinder" />
+      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricefinder.AmazonMwsPriceCheckerTest" />
+      <option name="METHOD_NAME" value="testParsingXmlFromProductsApi" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -368,29 +396,13 @@
       <module name="frugal-fairy" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.shoptasticle.pricechecker.listingfinder.*" />
+          <option name="PATTERN" value="com.shoptasticle.pricefinder.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.shoptasticle.pricechecker.listingfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricechecker.listingfinder.LowPriceTriggerTest" />
+      <option name="PACKAGE_NAME" value="com.shoptasticle.pricefinder" />
+      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricefinder.LowPriceTriggerTest" />
       <option name="METHOD_NAME" value="testCheapPriceTriggers" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LowPriceTriggerTest.testPricesSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="frugal-fairy" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.shoptasticle.pricechecker.listingfinder.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.shoptasticle.pricechecker.listingfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricechecker.listingfinder.LowPriceTriggerTest" />
-      <option name="METHOD_NAME" value="testPricesSet" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -400,32 +412,48 @@
       <module name="frugal-fairy" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.shoptasticle.pricechecker.listingfinder.*" />
+          <option name="PATTERN" value="com.shoptasticle.pricefinder.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.shoptasticle.pricechecker.listingfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricechecker.listingfinder.LowPriceTriggerTest" />
+      <option name="PACKAGE_NAME" value="com.shoptasticle.pricefinder" />
+      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricefinder.LowPriceTriggerTest" />
       <option name="METHOD_NAME" value="testSortedPrices" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebPriceFinderTest.testLobsterGlovesGetPrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="frugal-fairy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shoptasticle.pricefinder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.shoptasticle.pricefinder" />
+      <option name="MAIN_CLASS_NAME" value="com.shoptasticle.pricefinder.WebPriceFinderTest" />
+      <option name="METHOD_NAME" value="testLobsterGlovesGetPrice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.All in frugal-fairy" />
       <item itemvalue="JUnit.LowPriceTriggerTest.testCheapPriceTriggers" />
-      <item itemvalue="JUnit.LowPriceTriggerTest" />
-      <item itemvalue="JUnit.LowPriceTriggerTest.testPricesSet" />
       <item itemvalue="JUnit.LowPriceTriggerTest.testSortedPrices" />
+      <item itemvalue="JUnit.AmazonMwsPriceCheckerTest.testParsingXmlFromProductsApi" />
+      <item itemvalue="JUnit.WebPriceFinderTest.testLobsterGlovesGetPrice" />
+      <item itemvalue="JUnit.AmazonMwsPriceCheckerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebPriceFinderTest.testLobsterGlovesGetPrice" />
+        <item itemvalue="JUnit.AmazonMwsPriceCheckerTest" />
+        <item itemvalue="JUnit.AmazonMwsPriceCheckerTest.testParsingXmlFromProductsApi" />
         <item itemvalue="JUnit.LowPriceTriggerTest.testSortedPrices" />
         <item itemvalue="JUnit.LowPriceTriggerTest.testCheapPriceTriggers" />
-        <item itemvalue="JUnit.LowPriceTriggerTest.testPricesSet" />
-        <item itemvalue="JUnit.LowPriceTriggerTest" />
-        <item itemvalue="JUnit.All in frugal-fairy" />
       </list>
     </recent_temporary>
   </component>
@@ -455,39 +483,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LowPriceTriggerTest - 2019.01.02 at 00h 09m 17s.xml">
-      <configuration name="LowPriceTriggerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest - 2019.01.02 at 00h 53m 03s.xml">
-      <configuration name="LowPriceTriggerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest - 2019.01.02 at 00h 53m 49s.xml">
-      <configuration name="LowPriceTriggerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest_testCheapPriceTriggers - 2019.01.02 at 00h 57m 36s.xml">
-      <configuration name="LowPriceTriggerTest.testCheapPriceTriggers" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest_testCheapPriceTriggers - 2019.01.02 at 00h 57m 45s.xml">
-      <configuration name="LowPriceTriggerTest.testCheapPriceTriggers" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest_testCheapPriceTriggers - 2019.01.02 at 00h 59m 05s.xml">
-      <configuration name="LowPriceTriggerTest.testCheapPriceTriggers" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest_testCheapPriceTriggers - 2019.01.02 at 01h 03m 54s.xml">
-      <configuration name="LowPriceTriggerTest.testCheapPriceTriggers" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest_testCheapPriceTriggers - 2019.01.02 at 01h 05m 25s.xml">
-      <configuration name="LowPriceTriggerTest.testCheapPriceTriggers" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LowPriceTriggerTest_testPricesSet - 2019.01.02 at 01h 11m 12s.xml">
-      <configuration name="LowPriceTriggerTest.testPricesSet" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LowPriceTriggerTest_testPricesSet - 2019.01.02 at 01h 12m 31s.xml">
       <configuration name="LowPriceTriggerTest.testPricesSet" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AmazonMwsPriceCheckerTest_testParsingXmlFromProductsApi - 2019.01.19 at 21h 10m 48s.xml">
+      <configuration name="AmazonMwsPriceCheckerTest.testParsingXmlFromProductsApi" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmazonMwsPriceCheckerTest_testParsingXmlFromProductsApi - 2019.01.19 at 21h 11m 53s.xml">
+      <configuration name="AmazonMwsPriceCheckerTest.testParsingXmlFromProductsApi" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmazonMwsPriceCheckerTest_testParsingXmlFromProductsApi - 2019.01.19 at 21h 13m 09s.xml">
+      <configuration name="AmazonMwsPriceCheckerTest.testParsingXmlFromProductsApi" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebPriceFinderTest_testLobsterGlovesGetPrice - 2019.01.19 at 21h 49m 47s.xml">
+      <configuration name="WebPriceFinderTest.testLobsterGlovesGetPrice" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebPriceFinderTest_testLobsterGlovesGetPrice - 2019.01.19 at 21h 54m 47s.xml">
+      <configuration name="WebPriceFinderTest.testLobsterGlovesGetPrice" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebPriceFinderTest_testLobsterGlovesGetPrice - 2019.01.19 at 22h 00m 41s.xml">
+      <configuration name="WebPriceFinderTest.testLobsterGlovesGetPrice" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmazonMwsPriceCheckerTest - 2019.01.19 at 22h 02m 35s.xml">
+      <configuration name="AmazonMwsPriceCheckerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebPriceFinderTest_testLobsterGlovesGetPrice - 2019.01.19 at 22h 03m 01s.xml">
+      <configuration name="WebPriceFinderTest.testLobsterGlovesGetPrice" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebPriceFinderTest_testLobsterGlovesGetPrice - 2019.01.19 at 22h 05m 55s.xml">
+      <configuration name="WebPriceFinderTest.testLobsterGlovesGetPrice" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14642000" />
+    <option name="totallyTimeSpent" value="18722000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -502,7 +530,7 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20469083" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19936034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -510,15 +538,15 @@
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32941177" />
-      <window_info anchor="bottom" id="Java Enterprise" order="3" />
-      <window_info anchor="bottom" id="Spring" order="4" />
+      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32941177" />
+      <window_info anchor="bottom" id="Spring" order="4" weight="0.32941177" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32941177" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="10" weight="0.2372549" />
-      <window_info active="true" anchor="bottom" id="Debug" order="11" visible="true" weight="0.3990196" />
+      <window_info anchor="bottom" id="Run" order="10" visible="true" weight="0.42843136" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.3990196" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32941177" />
@@ -544,31 +572,31 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/AmazonPriceChecker.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/AmazonPriceFinder.java</url>
           <line>143</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Product.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Product.java</url>
           <line>53</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Price.java</url>
           <line>92</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Price.java</url>
           <line>75</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Price.java</url>
           <line>84</line>
           <properties />
           <option name="timeStamp" value="6" />
@@ -608,40 +636,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-          <folding>
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/Qualifiers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/LowestOfferListing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -660,62 +658,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/amazon/mws/AmazonMwsPriceCheckerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/Credentials.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/SignatureCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/SearchCriteria.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/PriceFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -729,79 +675,244 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/amazonSampleOffers.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        <state relative-caret-position="162">
+          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/GetLowestOfferListingsForAsinResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/LowestOfferListing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/AmazonPriceChecker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/jaxb/MwsProduct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="131" column="23" selection-start-line="131" selection-start-column="23" selection-end-line="131" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/GoGoGo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/NotificationTrigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="73" selection-start-line="3" selection-start-column="73" selection-end-line="3" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/LowPriceTrigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" selection-start-line="20" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="270">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/notify/GmailSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9965#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/GoGoGo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="43" column="12" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Price.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
             <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#826#827#0" expanded="true" />
             <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#900#901#0" expanded="true" />
             <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
             <element signature="e#1038#1039#0" expanded="true" />
             <element signature="e#1076#1077#0" expanded="true" />
             <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricechecker/listingfinder/LowPriceTriggerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/SearchCriteria.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/HttpRequestUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/PriceFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricechecker/Price.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/LowPriceTrigger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
+        <state relative-caret-position="72">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/domain/NotificationTrigger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/Credentials.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/3.14.0/selenium-chrome-driver-3.14.0.jar!/org/openqa/selenium/chrome/ChromeDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/3.14.0/selenium-chrome-driver-3.14.0-sources.jar!/org/openqa/selenium/chrome/ChromeDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="121" column="9" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.14.0/selenium-api-3.14.0.jar!/org/openqa/selenium/WebDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.14.0/selenium-api-3.14.0-sources.jar!/org/openqa/selenium/WebDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/bonigarcia/webdrivermanager/3.2.0/webdrivermanager-3.2.0-sources.jar!/io/github/bonigarcia/wdm/WebDriverManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/amazon/mws/client/SignatureCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/AmazonPriceFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shoptasticle/pricefinder/WebPriceFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
           <folding>
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LowPriceTriggerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/WebPriceFinderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/AmazonMwsPriceCheckerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/shoptasticle/pricefinder/LobsterGlovesPriceFinderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

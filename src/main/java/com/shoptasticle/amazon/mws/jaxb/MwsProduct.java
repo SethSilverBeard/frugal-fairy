@@ -6,7 +6,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "MwsProduct")
+@JacksonXmlRootElement(localName = "Product")
 public class MwsProduct {
 
     @JacksonXmlProperty(localName = "AllOfferListingsConsidered")

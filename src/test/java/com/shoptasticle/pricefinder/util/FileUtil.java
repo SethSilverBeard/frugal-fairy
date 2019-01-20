@@ -1,4 +1,4 @@
-package com.shoptasticle.pricechecker.util;
+package com.shoptasticle.pricefinder.util;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

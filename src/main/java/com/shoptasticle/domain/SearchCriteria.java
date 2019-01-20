@@ -1,4 +1,4 @@
-package com.shoptasticle.pricechecker;
+package com.shoptasticle.domain;
 
 import java.util.Objects;
 

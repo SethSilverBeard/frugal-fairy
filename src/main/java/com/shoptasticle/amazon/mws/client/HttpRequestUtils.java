@@ -1,4 +1,4 @@
-package com.shoptasticle.pricechecker;
+package com.shoptasticle.amazon.mws.client;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

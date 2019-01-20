@@ -12,7 +12,7 @@ public class GetLowestOfferListingsForAsinResult {
     @JacksonXmlProperty(localName = "status", isAttribute = true)
 	private String status;
 
-    @JacksonXmlProperty(localName = "MwsProduct")
+    @JacksonXmlProperty(localName = "Product")
 	private MwsProduct mwsProduct;
 
     @JacksonXmlProperty(localName = "Error")

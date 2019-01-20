@@ -1,8 +1,7 @@
-package com.shoptasticle.pricechecker;
+package com.shoptasticle.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 
 public class Price implements Comparable<Price>{

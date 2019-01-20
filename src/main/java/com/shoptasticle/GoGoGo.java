@@ -1,7 +1,10 @@
-package com.shoptasticle.pricechecker;
+package com.shoptasticle;
 
-import com.shoptasticle.amazon.mws.client.AmazonPriceChecker;
 import com.shoptasticle.amazon.mws.client.AmazonPriceCheckerException;
+import com.shoptasticle.domain.Price;
+import com.shoptasticle.domain.Product;
+import com.shoptasticle.domain.SearchCriteria;
+import com.shoptasticle.pricefinder.AmazonPriceFinder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +21,7 @@ public class GoGoGo {
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 	@Autowired
-	AmazonPriceChecker amazonChecker;
+	AmazonPriceFinder amazonChecker;
 	
 	public void go() throws AmazonPriceCheckerException {
 		scheduler.scheduleAtFixedRate(new Runnable() {
@@ -37,7 +40,7 @@ public class GoGoGo {
 	}
 
 	public void findEternalMastersBoxes() {
-		List<Price> prices = amazonChecker.findListings(SearchCriteria.createStringSearchCriteria("B01CCLTJFQ"));  //Eternal Masters ASIN
+		List<Price> prices = amazonChecker.findPrices(SearchCriteria.createStringSearchCriteria("B01CCLTJFQ"));  //Eternal Masters ASIN
 		Product product = new Product();
 		product.setPrices(prices);
 		product.setTargetPrice(new BigDecimal("240"));

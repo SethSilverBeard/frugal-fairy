@@ -1,21 +1,24 @@
-package com.shoptasticle.amazon.mws.client;
+package com.shoptasticle.pricefinder;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.shoptasticle.amazon.mws.client.AmazonPriceCheckerException;
+import com.shoptasticle.amazon.mws.client.Credentials;
+import com.shoptasticle.amazon.mws.client.HttpRequestUtils;
+import com.shoptasticle.amazon.mws.client.SignatureCalculator;
 import com.shoptasticle.amazon.mws.jaxb.GetLowestOfferListingsForAsinResponse;
 import com.shoptasticle.amazon.mws.jaxb.GetLowestOfferListingsForAsinResult;
 import com.shoptasticle.amazon.mws.jaxb.LowestOfferListing;
 import com.shoptasticle.amazon.mws.jaxb.MwsProduct;
-import com.shoptasticle.pricechecker.HttpRequestUtils;
-import com.shoptasticle.pricechecker.Price;
-import com.shoptasticle.pricechecker.PriceFinder;
-import com.shoptasticle.pricechecker.SearchCriteria;
+import com.shoptasticle.domain.Price;
+import com.shoptasticle.domain.SearchCriteria;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -25,23 +28,21 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
-public class AmazonPriceChecker implements PriceFinder {
+public class AmazonPriceFinder implements PriceFinder {
 
 	private ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.xml().featuresToDisable(DeserializationFeature.FAIL_ON_NULL_CREATOR_PROPERTIES).build();
 
-	private static final Logger logger = LogManager.getLogger(AmazonPriceChecker.class);
+	private static final Logger logger = LogManager.getLogger(AmazonPriceFinder.class);
 
 	@Autowired
 	private Credentials credentials;
 
 	private SignatureCalculator signatureCalculator;
 
-	private AmazonPriceChecker(Credentials credentials) {
-		this.credentials = Objects.requireNonNull(credentials);
-		this.signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products/2011-10-01");
-
+	@PostConstruct
+	public void postConstruct() {
+		 signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products/2011-10-01");
 	}
-
 	/**
 	 * 
 	 * @param asin
@@ -63,10 +64,6 @@ public class AmazonPriceChecker implements PriceFinder {
 		urlParameters.put("Timestamp", getCurrentTimestamp());
 		signatureCalculator.sign(urlParameters);
 		return HttpRequestUtils.mapToQueryString(urlParameters);
-	}
-
-	public static AmazonPriceChecker createProductsApiClient(Credentials credentials) {
-		return new AmazonPriceChecker(credentials);
 	}
 
 	public String findOffersAsString(String asin) throws Exception {
@@ -129,7 +126,7 @@ public class AmazonPriceChecker implements PriceFinder {
 	}
 
 	@Override
-	public List<Price> findListings(SearchCriteria searchCriteria) {
+	public List<Price> findPrices(SearchCriteria searchCriteria) {
 		Objects.requireNonNull(searchCriteria);
 		try {
 			String offers = findOffersAsString(searchCriteria.getSearchString());

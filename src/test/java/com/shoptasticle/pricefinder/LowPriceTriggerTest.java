@@ -1,7 +1,7 @@
-package com.shoptasticle.pricechecker.listingfinder;
+package com.shoptasticle.pricefinder;
 
-import com.shoptasticle.pricechecker.Price;
-import com.shoptasticle.pricechecker.Product;
+import com.shoptasticle.domain.Price;
+import com.shoptasticle.domain.Product;
 import org.junit.Test;
 
 import java.math.BigDecimal;

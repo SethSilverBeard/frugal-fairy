@@ -1,8 +1,7 @@
-package com.shoptasticle.amazon.mws;
+package com.shoptasticle.pricefinder;
 
-import com.shoptasticle.amazon.mws.client.AmazonPriceChecker;
-import com.shoptasticle.pricechecker.Price;
-import com.shoptasticle.pricechecker.util.FileUtil;
+import com.shoptasticle.domain.Price;
+import com.shoptasticle.pricefinder.util.FileUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +19,7 @@ public class AmazonMwsPriceCheckerTest {
 	private static final String ETERNAL_MASTERS_BOOSTER_BOX_ASIN = "B01CCLTJFQ";
 
 	@Autowired
-	private AmazonPriceChecker client;
+	private AmazonPriceFinder client;
 
 	@Test
 	public void testCallingAmazonMws() throws Exception {

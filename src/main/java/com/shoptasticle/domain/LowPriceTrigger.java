@@ -1,4 +1,4 @@
-package com.shoptasticle.pricechecker;
+package com.shoptasticle.domain;
 
 import java.math.BigDecimal;
 import java.util.Objects;

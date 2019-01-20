@@ -6,7 +6,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 @JacksonXmlRootElement(localName = "LowestOfferListing")
 public class LowestOfferListing {
 
-	@JacksonXmlProperty(localName = "MwsPrice")
+	@JacksonXmlProperty(localName = "Price")
 	private MwsPrice mwsPrice;
 	
 	private Qualifiers qualifiers;
