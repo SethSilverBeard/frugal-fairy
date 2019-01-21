@@ -1,7 +1,7 @@
 package com.shoptasticle.pricefinder;
 
 import com.shoptasticle.domain.Price;
-import com.shoptasticle.domain.Product;
+import com.shoptasticle.domain.ProductWithPrices;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -32,7 +32,7 @@ public class LowPriceTriggerTest {
 
 	@Test
 	public void testCheapPriceTriggers() throws Exception {
-		Product product = new Product();
+		ProductWithPrices product = new ProductWithPrices();
 		product.setTargetPrice(TARGET_PRICE);
 		Price cheapPrice = new Price(CHEAP_PRICE);
 		product.setPrices(Arrays.asList(cheapPrice));
@@ -49,7 +49,7 @@ public class LowPriceTriggerTest {
 
 	@Test
 	public void testSortedPrices() {
-		Product product = new Product();
+		ProductWithPrices product = new ProductWithPrices();
 		Price cheapListing = new Price();
 		cheapListing.setTotal(CHEAP_PRICE);
 		Price cheaperListing = new Price();
@@ -67,7 +67,7 @@ public class LowPriceTriggerTest {
 	
 	@Test
 	public void testExpensivePriceDoesNotTrigger() throws Exception {
-		Product product = new Product();
+		ProductWithPrices product = new ProductWithPrices();
 		product.setTargetPrice(TARGET_PRICE);
 		Price expensiveListing = new Price();
 		expensiveListing.setTotal(EXPENSIVE_PRICE);

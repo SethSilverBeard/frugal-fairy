@@ -17,9 +17,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-/**
- * Created by wingert on 5/24/2016.
- */
 public class SignatureCalculator {
 
     private static final String CHARACTER_ENCODING = StandardCharsets.UTF_8.name();

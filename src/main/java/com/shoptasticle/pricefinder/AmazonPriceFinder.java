@@ -11,14 +11,11 @@ import com.shoptasticle.amazon.mws.jaxb.GetLowestOfferListingsForAsinResult;
 import com.shoptasticle.amazon.mws.jaxb.LowestOfferListing;
 import com.shoptasticle.amazon.mws.jaxb.MwsProduct;
 import com.shoptasticle.domain.Price;
-import com.shoptasticle.domain.SearchCriteria;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -34,15 +31,16 @@ public class AmazonPriceFinder implements PriceFinder {
 
 	private static final Logger logger = LogManager.getLogger(AmazonPriceFinder.class);
 
-	@Autowired
 	private Credentials credentials;
 
 	private SignatureCalculator signatureCalculator;
 
-	@PostConstruct
-	public void postConstruct() {
-		 signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products/2011-10-01");
+	public AmazonPriceFinder(Credentials credentials) {
+		Objects.requireNonNull(credentials);
+		this.credentials = credentials;
+		this.signatureCalculator = SignatureCalculator.createSignatureCalculator(credentials, "Products/2011-10-01");
 	}
+
 	/**
 	 * 
 	 * @param asin
@@ -126,10 +124,9 @@ public class AmazonPriceFinder implements PriceFinder {
 	}
 
 	@Override
-	public List<Price> findPrices(SearchCriteria searchCriteria) {
-		Objects.requireNonNull(searchCriteria);
+	public List<Price> findPrices(String asin) {
 		try {
-			String offers = findOffersAsString(searchCriteria.getSearchString());
+			String offers = findOffersAsString(asin);
 			return parseAmazonOffersXml(offers);
 		} catch (Exception e) {
 			throw new AmazonPriceCheckerException(e);

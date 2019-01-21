@@ -1,6 +1,7 @@
-package com.shoptasticle.pricefinder;
+package com.shoptasticle.pricefinder.integration;
 
 import com.shoptasticle.domain.Price;
+import com.shoptasticle.pricefinder.AmazonPriceFinder;
 import com.shoptasticle.pricefinder.util.FileUtil;
 import org.junit.Assert;
 import org.junit.Test;

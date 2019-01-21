@@ -1,7 +1,5 @@
 package com.shoptasticle.domain;
 
-import com.shoptasticle.domain.Price;
-
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -11,21 +9,14 @@ import java.util.*;
 public class Product {
     String name;
     BigDecimal targetPrice;
-    Set<Price> prices = new TreeSet<>();
+    List<String> urls;
 
-    public List<Price> getGoodPrices() {
-        if (prices == null || prices.isEmpty()) {
-            return Collections.emptyList();
-        }
-        List<Price> goodPrices = new ArrayList<>();
-        for (Price price: prices) {
-            if (price.getTotal() == null || price.getTotal().compareTo(targetPrice) > 0 ) {
-                continue;
-            } else {
-               goodPrices.add(price);
-            }
-        }
-        return goodPrices;
+    public List<String> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<String> urls) {
+        this.urls = urls;
     }
 
     public String getName() {
@@ -44,15 +35,10 @@ public class Product {
         this.targetPrice = targetPrice;
     }
 
-    public List<Price> getPrices() {
-        return new ArrayList<>(prices);
-    }
-
-    public void setPrices(List<Price> prices) {
-        this.prices.clear();
-        this.prices.addAll(prices);
-    }
-    public void addPrice(Price price) {
-        prices.add(price);
+    public void addUrl(String url) {
+        if (urls == null || urls.isEmpty()) {
+            urls = new ArrayList<>();
+        }
+        urls.add(url);
     }
 }
