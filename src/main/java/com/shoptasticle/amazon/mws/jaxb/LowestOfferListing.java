@@ -8,7 +8,8 @@ public class LowestOfferListing {
 
 	@JacksonXmlProperty(localName = "Price")
 	private MwsPrice mwsPrice;
-	
+
+	@JacksonXmlProperty(localName = "Qualifiers")
 	private Qualifiers qualifiers;
 	
 	public MwsPrice getMwsPrice() {

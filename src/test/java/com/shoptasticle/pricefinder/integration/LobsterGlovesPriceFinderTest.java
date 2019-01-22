@@ -1,5 +1,6 @@
 package com.shoptasticle.pricefinder.integration;
 
+import com.shoptasticle.amazon.mws.client.Credentials;
 import com.shoptasticle.domain.Product;
 import com.shoptasticle.domain.ProductWithPrices;
 import com.shoptasticle.pricefinder.AmazonPriceFinder;
@@ -10,8 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
@@ -19,15 +20,14 @@ import java.math.BigDecimal;
 @SpringBootTest(classes = {
         PriceFinderServiceImpl.class,
         WebPriceFinder.class,
+        AmazonPriceFinder.class
 })
+@EnableConfigurationProperties(Credentials.class)
 @RunWith(SpringRunner.class)
 public class LobsterGlovesPriceFinderTest {
 
     @Autowired
     private PriceFinderService priceFinderService;
-
-    @MockBean
-    AmazonPriceFinder amazonPriceFinder;
 
     Product lobsterGloves;
 

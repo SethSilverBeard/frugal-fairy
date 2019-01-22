@@ -163,6 +163,7 @@ public class AmazonPriceFinder implements PriceFinder {
 				price.setShippingPrice(lowestOffer.getMwsPrice().getShippingPrice().getAmount());
 				price.setTotal(lowestOffer.getMwsPrice().getLandedPrice().getAmount());
 				price.setUrl("https://www.amazon.com/dp/" + getLowestOfferListingsForAsinResult.getAsin());
+				price.setSellerName("Amazon seller, feedback rating (" + lowestOffer.getQualifiers().getSellerPositiveFeedbackRating() + ")");
 				prices.add(price);
 				logger.info(price);
 			}

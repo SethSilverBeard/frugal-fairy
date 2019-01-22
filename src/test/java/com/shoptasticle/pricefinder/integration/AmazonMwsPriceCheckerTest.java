@@ -1,5 +1,6 @@
 package com.shoptasticle.pricefinder.integration;
 
+import com.shoptasticle.amazon.mws.client.Credentials;
 import com.shoptasticle.domain.Price;
 import com.shoptasticle.pricefinder.AmazonPriceFinder;
 import com.shoptasticle.pricefinder.util.FileUtil;
@@ -7,13 +8,17 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@SpringBootTest
+@SpringBootTest(classes= {
+		AmazonPriceFinder.class
+})
+@EnableConfigurationProperties(Credentials.class)
 @RunWith(SpringRunner.class)
 public class AmazonMwsPriceCheckerTest {
 
