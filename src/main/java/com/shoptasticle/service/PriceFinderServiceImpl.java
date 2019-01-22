@@ -1,11 +1,14 @@
 package com.shoptasticle.service;
 
+import com.shoptasticle.domain.Price;
 import com.shoptasticle.domain.Product;
 import com.shoptasticle.domain.ProductWithPrices;
 import com.shoptasticle.pricefinder.AmazonPriceFinder;
 import com.shoptasticle.pricefinder.PriceFinder;
 import com.shoptasticle.pricefinder.WebPriceFinder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PriceFinderServiceImpl implements PriceFinderService {
@@ -23,7 +26,8 @@ public class PriceFinderServiceImpl implements PriceFinderService {
         ProductWithPrices p = new ProductWithPrices(product);
         for (String url: product.getUrls()) {
             PriceFinder priceFinder = createPriceFinder(url);
-            p.addAllPrices(priceFinder.findPrices(url));
+            List<Price> prices = priceFinder.findPrices(url);
+            p.addAllPrices(prices);
         }
         return p;
     }

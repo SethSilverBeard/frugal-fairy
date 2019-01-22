@@ -70,12 +70,19 @@ public class Price implements Comparable<Price>{
 				+ ", dateRetrieved=" + dateRetrieved + "]";
 	}
 
+
+
+
 	@Override
 	public int compareTo(Price o) {
 		if (o == null) return -1;
 		if (o.getTotal() == null) return -1;
 		if (this.getTotal() == null) return 1;
 		if (o.getTotal() == null && this.getTotal() == null) return 0;
+		if (this.getTotal().compareTo(o.getTotal()) == 0) {
+			//if dont do this, 2 prices of "59.99" from different sellers will result in only 1 of them in TreeSet
+			return Integer.valueOf(this.hashCode()).compareTo(o.hashCode());
+		}
 		return this.getTotal().compareTo(o.getTotal());
 	}
 

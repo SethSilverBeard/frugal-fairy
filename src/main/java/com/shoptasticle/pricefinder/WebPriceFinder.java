@@ -8,22 +8,51 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WebPriceFinder implements PriceFinder {
 
+    WebDriver driver;
+
+    //TODO: Move this to a singleton bean and inject.
+    @PostConstruct
+    public void init() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+    }
+
     @Override
     public List<Price> findPrices(String url) {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
         driver.get(url);
-        //String priceString = //driver.findElement(By.cssSelector(".product-pricing__sale.js-product-pricing__sale")).getText();
         List<WebElement> priceElements = driver.findElements(By.xpath("//*[not(self::script or self::style) and starts-with(text(), '$')]"));
-        //System.out.println("priceElements = " + priceElements);
-        Price price = new Price(new BigDecimal(priceElements.get(0).getText().replace("$","")));
-        return Arrays.asList(price);
+        Optional<WebElement> firstVisiblePrice = priceElements.stream()
+                .filter(e -> e.isDisplayed())
+                .findFirst();
+        if (firstVisiblePrice.isPresent()) {
+            Price price = new Price(new BigDecimal(firstVisiblePrice.get().getText().replace("$", "")));
+            price.setUrl(url);
+            price.setSellerName(parseHostName(url));
+            return Arrays.asList(price);
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
+    private String parseHostName(String url) {
+        try {
+            URI uri = new URI(url);
+            return uri.getHost();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

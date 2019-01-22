@@ -1,8 +1,13 @@
 package com.shoptasticle.domain;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 
 public class ProductWithPrices extends Product {
+
+    private static final Logger LOGGER = LogManager.getLogger(ProductWithPrices.class);
 
     Set<Price> prices = new TreeSet<>();
 
@@ -22,6 +27,7 @@ public class ProductWithPrices extends Product {
         List<Price> goodPrices = new ArrayList<>();
         for (Price price : prices) {
             if (price.getTotal() == null || price.getTotal().compareTo(targetPrice) > 0) {
+                LOGGER.debug("Price [{}] too expensive from {}.",price.getTotal(), price.getSellerName());
                 continue;
             } else {
                 goodPrices.add(price);
