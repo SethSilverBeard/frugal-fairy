@@ -2,6 +2,8 @@ package com.shoptasticle.pricefinder;
 
 import com.shoptasticle.domain.Price;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,27 +22,33 @@ import java.util.Optional;
 @Service
 public class WebPriceFinder implements PriceFinder {
 
-    WebDriver driver;
+    private static final Logger logger = LogManager.getLogger(WebPriceFinder.class);
 
     //TODO: Move this to a singleton bean and inject.
     @PostConstruct
     public void init() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
     }
 
     @Override
     public List<Price> findPrices(String url) {
+        WebDriver driver = new ChromeDriver();
         driver.get(url);
         List<WebElement> priceElements = driver.findElements(By.xpath("//*[not(self::script or self::style) and starts-with(text(), '$')]"));
         Optional<WebElement> firstVisiblePrice = priceElements.stream()
                 .filter(e -> e.isDisplayed())
                 .findFirst();
         if (firstVisiblePrice.isPresent()) {
-            Price price = new Price(new BigDecimal(firstVisiblePrice.get().getText().replace("$", "")));
-            price.setUrl(url);
-            price.setSellerName(parseHostName(url));
-            return Arrays.asList(price);
+            String priceString = firstVisiblePrice.get().getText().replace("$", "");
+            try {
+                Price price = new Price(new BigDecimal(priceString));
+                price.setUrl(url);
+                price.setSellerName(parseHostName(url));
+                return Arrays.asList(price);
+            } catch(NumberFormatException e) {
+                logger.error("Unable to parse price [{}] from [{}]", priceString, url, e);
+                return Collections.emptyList();
+            }
         } else {
             return Collections.emptyList();
         }
