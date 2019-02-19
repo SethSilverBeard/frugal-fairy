@@ -38,7 +38,7 @@ public class LobsterGlovesPriceFinderTest {
         lobsterGloves.setTargetPrice(new BigDecimal("52.00"));
         lobsterGloves.addUrl("B06WLNT9MF");
         lobsterGloves.addUrl("https://www.backcountry.com/pearl-izumi-p.r.o.-amfib-lobster-gloves?CMP_SKU=PLZ009R&MER=0406&skid=PLZ009R-SCRYL-M&mr:trackingCode=FCADA246-E9F7-E811-8109-005056944E17&mr:referralID=NA&mr:device=c&mr:adType=plaonline&CMP_ID=PLA_GOc001&utm_source=Google&utm_medium=PLA&k_clickid=_k_CjwKCAiAsoviBRAoEiwATm8OYC-1TQVolUu9TP4sserK2Rx85KgcLUQYae6KoeqrlXO7h6tL5BX1tBoCfPMQAvD_BwE_k_");
-        lobsterGloves.addUrl("https://www.steepandcheap.com/pearl-izumi-p.r.o.-amfib-lobster-gloves?CMP_ID=PLA_GOc005BR&utm_source=Google&utm_medium=PLA&k_clickid=_k_Cj0KCQiA-JXiBRCpARIsAGqF8wUZYKOn3VTTdUgmFkrkm8yvw7MMzdgApwQJqHprPss8GqvuaAO9W0gaAoyYEALw_wcB_k_");
+        lobsterGloves.addUrl("https://www.coloradocyclist.com/pearl-izumi-p-r-o-amfib-lobster-glove-md-screaming-yellow");
         lobsterGloves.addUrl("https://www.competitivecyclist.com/pearl-izumi-p.r.o.-amfib-lobster-gloves?skid=PLZ009R-SCRYL-M&CMP_SKU=PLZ009R&MER=0406&CSPID=0914&mr:trackingCode=1001AB50-E9F7-E811-8100-0050569428E8&mr:referralID=NA&mr:device=c&mr:adType=plaonline&mr:ad=185076965647&mr:keyword=&mr:match=&mr:tid=pla-453938964932&mr:ploc=9028820&mr:iloc=&mr:store=&mr:filter=453938964932&CMP_ID=PLA_GOc014&CSPID=0914&utm_source=Google&utm_medium=PLA&k_clickid=_k_EAIaIQobChMIgKb8zbWA4AIVSbbACh108wdFEAYYCSABEgJsr_D_BwE_k_&gclid=EAIaIQobChMIgKb8zbWA4AIVSbbACh108wdFEAYYCSABEgJsr_D_BwE");
     }
 

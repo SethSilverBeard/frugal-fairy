@@ -34,9 +34,12 @@ public class WebPriceFinder implements PriceFinder {
     public List<Price> findPrices(String url) {
         WebDriver driver = new ChromeDriver();
         driver.get(url);
+        //ignore <self> and <style> elements, grab those that start with a $ sign
         List<WebElement> priceElements = driver.findElements(By.xpath("//*[not(self::script or self::style) and starts-with(text(), '$')]"));
         Optional<WebElement> firstVisiblePrice = priceElements.stream()
                 .filter(e -> e.isDisplayed())
+                .filter(e -> e.getText().matches("\\$[0-9\\. ]+"))  //only digits, periods, and spaces after $ sign
+                .filter(e -> !e.getCssValue("text-decoration").contains("line-through")) //no cross-outs
                 .findFirst();
         if (firstVisiblePrice.isPresent()) {
             String priceString = firstVisiblePrice.get().getText().replace("$", "");
